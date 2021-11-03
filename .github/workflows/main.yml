@@ -40,10 +40,7 @@ jobs:
         run: pip install -r Installer/requirements.txt
         
       - name: Run PyInstaller
-        run: pyinstaller --onefile Installer/main.py --hidden-import=requests     
-        
-      - name: List directories
-        run: tree
+        run: pyinstaller --onefile Installer/main.py --hidden-import=requests -i Installer/Icon.ico
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
@@ -51,4 +48,4 @@ jobs:
           # Artifact name
           name: Setup
           # A file, directory or wildcard pattern that describes what to upload
-          path: ./      
+          path: ./dist/main.exe  
